@@ -1,0 +1,279 @@
+/* ═════════════════ Vela — direction B overrides ═════════════════ */
+:root {
+  --bg: #021222;
+  --font: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --serif: "Cormorant Garamond", "Times New Roman", serif;
+  --manrope: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+  --klein-b: #002fa7;
+  --klein-line: #0a2fb0;
+  --peri-b: #7b95ff;
+}
+body { font-family: var(--font); }
+.device { background: var(--bg); }
+.status-bar .time { font-family: "Geist", var(--font); }
+
+/* buttons */
+.btn-b {
+  position: relative; height: 48px; padding: 0 40px; border-radius: 100px; border: 0.5px solid var(--klein-line);
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; color: #fff; font-size: 16px; overflow: hidden;
+  transition: transform .15s ease, filter .2s;
+}
+.btn-b:active { transform: scale(0.97); }
+.btn-b.ghost { background: rgba(0, 47, 167, 0.1); box-shadow: inset 0 4px 4px rgba(0,0,0,0.25), inset 0 -4px 4px rgba(0,0,0,0.25); }
+.btn-b.solid { background: var(--klein-b); box-shadow: inset 0 6.5px 4px rgba(128,94,240,0.25), inset 0 -4px 4px rgba(93,123,243,0.25); }
+.btn-b.wide { width: 100%; }
+
+/* ───────── Onboarding ───────── */
+.onb-b { position: absolute; inset: 0; background: #001021; overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: 24px; padding-top: 78px; }
+.onb-b-top { width: 100%; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.onb-b-progress { width: 100%; display: flex; gap: 8px; padding: 0 32px; }
+.onb-b-progress .bar { flex: 1; height: 2px; border-radius: 4px; box-shadow: inset 0 0 0 0.5px rgba(255,255,255,0.35); overflow: hidden; }
+.onb-b-progress .fill { height: 100%; background: #fff; width: 0; }
+.onb-b-skip { padding: 0 32px; font-weight: 300; font-size: 14px; color: rgba(255,255,255,0.7); }
+.onb-b-art { position: relative; width: 100%; height: 404px; flex-shrink: 0; overflow: hidden; }
+.onb-b-art img { position: absolute; height: auto; max-width: none; }
+.onb-b-video { position: absolute; left: 0; top: 0; width: 393px; height: 404px; object-fit: cover; display: block; --fx: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); --fy: linear-gradient(transparent, #000 7%, #000 90%, transparent); -webkit-mask-image: var(--fx), var(--fy); -webkit-mask-composite: source-in; mask-image: var(--fx), var(--fy); mask-composite: intersect; }
+.float { animation: b-float 7s ease-in-out infinite; }
+@keyframes b-float { 0%, 100% { translate: 0 0; rotate: 0deg; } 50% { translate: 0 -8px; rotate: -1.2deg; } }
+.onb-b-copy { width: 100%; padding: 0 32px; display: flex; flex-direction: column; gap: 11px; }
+.onb-b-copy h1 { margin: 0; display: flex; flex-direction: column; font-weight: 400; }
+.onb-b-copy h1 em { font-family: var(--serif); font-style: italic; font-size: 40px; color: #faf6f0; line-height: 1.2; }
+.onb-b-copy h1 span { font-size: 32px; color: #f9f9f9; line-height: 1.2; }
+.onb-b-copy p { font-size: 16px; color: #8e98b8; max-width: 322px; line-height: 1.15; }
+.onb-b-actions { margin-top: 16px; display: flex; flex-direction: column; align-items: center; gap: 19px; }
+.onb-b-actions .btn-b { font-family: var(--manrope); font-weight: 500; height: 46px; }
+.onb-b-link { font-family: var(--manrope); font-size: 14px; color: #8e98b8; }
+
+/* ───────── shared B pieces ───────── */
+.wp-b { position: absolute; left: 0; top: 0; width: 100%; pointer-events: none; z-index: 0; }
+.wp-b img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.asset-ring { width: 30px; height: 30px; border-radius: 100px; background: rgba(123,149,255,0.1); display: grid; place-items: center; flex-shrink: 0; }
+.asset-coin { width: 18px; height: 18px; border-radius: 10px; border: 0.5px solid rgba(123,149,255,0.3); display: grid; place-items: center; font-family: var(--manrope); font-weight: 800; font-size: 9px; color: #fff; overflow: hidden; }
+.card-b { background: rgba(17,26,51,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 4px 16px !important; -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
+.card-b .row { align-items: center; }
+.t-name { font-weight: 400; }
+.t-meta { font-family: var(--manrope); }
+.badge { font-family: var(--manrope); }
+.section-head h2, .open-head h2 { font-weight: 400; font-size: 20px; }
+.section-head .link, .see-b { font-weight: 500; font-size: 14px; color: rgba(255,255,255,0.7); }
+.see-b { font-size: 13px; }
+.rank { font-family: var(--mono); }
+.seg { background: rgba(26,35,64,0.35); }
+.seg button { font-weight: 400; font-size: 14px; color: #fff; }
+.seg button.on { color: #fff; font-weight: 700; }
+.seg .pill { background: rgba(123,149,255,0.2); border: 0.3px solid rgba(255,255,255,0.9); }
+.seg.full .pill { border: 0; }
+.mover-chip { font-weight: 700; }
+.trange.b { margin: 0; width: 100%; }
+.trange.b button { font-weight: 400; color: #c9d4ff; }
+.trange.b button.on { color: #fff; font-weight: 700; }
+.trange.b .pill { background: rgba(123,149,255,0.2) !important; }
+.trange .pill { background: rgba(123,149,255,0.2) !important; }
+.trange button.on { color: #fff; }
+
+/* ───────── Home ───────── */
+.home-content { padding: 60px 16px 150px; }
+.avatar-b { width: 40px; height: 40px; border-radius: 100px; background: rgba(123,149,255,0.1); padding: 6px; flex-shrink: 0; }
+.avatar-b span { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 100px; background: rgba(185,204,255,0.8); border: 0.5px solid rgba(123,149,255,0.3); overflow: hidden; }
+.avatar-b img { width: 26px; height: 23px; object-fit: cover; }
+.search-pill { border-radius: 100px; font-weight: 300; }
+.pf-card-b {
+  border: 0.2px solid rgba(255,255,255,0.9); border-radius: 24px; background: rgba(17,24,68,0.2); padding: 16px;
+  display: flex; flex-direction: column; gap: 20px; position: relative;
+}
+.pf-card-b .greet { display: flex; flex-direction: column; }
+.pf-card-b .greet em { font-family: var(--serif); font-style: italic; font-size: 20px; color: #fff; }
+.pf-card-b .greet span { font-family: "Geist", var(--font); font-weight: 500; font-size: 12px; color: var(--muted-2); }
+.pf-row { display: flex; align-items: center; justify-content: space-between; }
+.pf-row .value { display: flex; align-items: baseline; font-size: 40px; letter-spacing: -1.6px; }
+.pf-row .value .int { color: #fff; font-weight: 500; }
+.pf-row .value .dec { color: var(--muted-2); font-weight: 400; }
+.today-col { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.today-col > span { font-weight: 500; font-size: 14px; color: var(--muted-2); }
+.pill-up { display: flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 10px; background: rgba(91,227,176,0.14); border: 0.3px solid rgba(91,227,176,0.6); color: var(--mint); font-weight: 700; font-size: 12px; }
+.cash-b { display: flex; align-items: flex-start; }
+.cash-b .lbl { font-size: 13px; color: var(--muted-2); }
+.cash-b .amt { font-weight: 500; font-size: 22px; color: #fff; }
+.btn-row-b { display: flex; gap: 16px; }
+.btn-row-b .btn-b { flex: 1; padding: 0; }
+
+/* chart */
+.bchart { position: relative; width: 100%; touch-action: pan-y; user-select: none; }
+.bgrid { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+.bgrid line { stroke: #eef1fa; stroke-opacity: 0.12; stroke-width: 1; stroke-dasharray: 2 4; vector-effect: non-scaling-stroke; }
+.bchart-plot { position: absolute; left: 0; right: 8%; top: 6%; bottom: 0; }
+.bchart .live-dot { width: 8px; height: 8px; margin: -4px 0 0 -4px; }
+.bscrub-line { position: absolute; top: -6%; bottom: 0; width: 1px; margin-left: -0.5px; background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.55) 25%, rgba(255,255,255,0.55) 75%, rgba(255,255,255,0)); pointer-events: none; }
+.bscrub-dot { position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 6px rgba(91,227,176,0.15), 0 0 60px 40px rgba(91,227,176,0.16); pointer-events: none; }
+.btip {
+  position: absolute; width: 75px; padding: 5px 7px; border-radius: 8px; display: flex; flex-direction: column; pointer-events: none; z-index: 3;
+  background: rgba(45,75,224,0.05); border: 0.5px solid rgba(91,227,176,0.2); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+}
+.btip b { font-family: var(--manrope); font-weight: 700; font-size: 8px; color: var(--peri-b); margin-bottom: 4px; }
+.btip .v { font-size: 12px; color: #fff; }
+.btip span:last-child { font-weight: 500; font-size: 11px; }
+.blevel { position: absolute; left: 0; right: -9%; height: 0; border-top: 1.2px dashed; pointer-events: none; }
+.blevel.entry { border-color: rgba(157,176,255,0.7); }
+.blevel.liq { border-top-style: dotted; border-color: rgba(255,107,107,0.7); }
+.blevel span { position: absolute; left: 12px; top: -11px; background: #050b1f; border-radius: 8px; padding: 4px 8px; font-weight: 700; font-size: 11px; white-space: pre; }
+.blevel.entry span { border: 1px solid rgba(157,176,255,0.8); color: var(--peri); }
+.blevel.liq span { border: 1px solid rgba(255,107,107,0.8); color: var(--coral); }
+
+/* news */
+.carousel.b { gap: 16px; margin: 0 -16px; padding: 0 16px; scroll-padding: 0 16px; }
+.news-b { position: relative; flex-shrink: 0; width: 300px; height: 136px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.9); background: rgba(12,20,48,0.8); padding: 20px; overflow: hidden; scroll-snap-align: start; cursor: pointer; }
+.news-b .txt { position: relative; z-index: 1; width: 158px; display: flex; flex-direction: column; gap: 5px; }
+.news-b .kicker { font-family: "Geist", var(--font); font-size: 11px; color: var(--peri); }
+.news-b .title { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: 22px; color: #eef1fa; line-height: 1.1; }
+.news-b .body { font-family: "Geist", var(--font); font-size: 13px; color: #8e98b8; line-height: 1.25; }
+.news-b .neon { position: absolute; object-fit: cover; pointer-events: none; }
+.x-b { position: absolute; left: 266px; top: 5px; width: 24px; height: 24px; display: grid; place-items: center; z-index: 2; }
+
+.featured-b { border: 1px solid rgba(123,149,255,0.45); padding: 18px 0 !important; }
+.featured-b > div:first-child, .featured-b .social { padding: 0 16px; }
+.featured-b .tag { font-family: var(--mono); }
+.avs-b { display: flex; }
+.avs-b span { width: 22px; height: 22px; border-radius: 100px; background: rgba(123,149,255,0.1); padding: 3px; margin-right: -8px; display: grid; place-items: center; }
+.avs-b span:last-child { margin-right: 0; }
+.avs-b img { width: 16px; height: 16px; border-radius: 100px; background: #ff9f43; object-fit: cover; border: 0.5px solid rgba(123,149,255,0.3); }
+
+.tabbar { width: 334px; justify-content: space-between; bottom: 35px; }
+.tabbar button { font-family: var(--manrope); }
+.bottom-fade { background: linear-gradient(to bottom, rgba(5,11,31,0) 0%, rgba(5,11,31,0.9) 60%, #050b1f 100%); }
+
+/* ───────── Asset page ───────── */
+.asset-content { padding-top: 122px; padding-bottom: 140px; }
+.price-block { padding: 0 24px; }
+.pf-row.asset .value { font-size: 36px; letter-spacing: -1.44px; }
+.chart-b-wrap { padding: 0 24px; margin-top: 24px; }
+.chart-b-wrap .bchart-plot { right: 7%; top: 0; }
+.trange.asset { margin: 24px 44px 0; width: auto; }
+.ratio { margin-top: 24px; }
+.ratio .lbls { font-weight: 700; }
+.ratio .bars i:first-child { background: rgba(91,227,176,0.45) !important; border: 0.4px solid #5be3b0; }
+.ratio .bars i:last-child { background: rgba(255,107,107,0.45) !important; border: 0.4px solid #ff6b6b; }
+.below { margin-top: 24px; }
+.pos-card .pnl .big { font-weight: 500; }
+.chip.on { background: var(--peri-b); color: #050b1f; }
+.chip { font-weight: 400; }
+.chip.on { font-weight: 700; }
+.tabs2 button { font-weight: 400; gap: 4px; }
+.tabs2 i { height: 2px; }
+.trader .quote { font-family: var(--font); }
+.prow b { font-weight: 700; }
+.below .btn-row-b { margin-top: 4px; }
+.asset-header .icon-btn, .icon-btn { border-radius: 22px; }
+
+/* ───────── Trade ───────── */
+.trade { background: var(--bg); }
+.trade-top .ttl span { font-weight: 500; }
+.ls-toggle { padding: 8px; background: transparent; border: 1px solid rgba(255,255,255,0.14); }
+.ls-toggle button { font-weight: 400; color: #fff; font-family: var(--font); }
+.ls-toggle button.on { color: #fff; }
+.ls-toggle .pill { top: 8px; bottom: 8px; width: calc(50% - 10px); background: rgba(123,149,255,0.2) !important; border: 0.5px solid rgba(255,255,255,0.9); box-shadow: 0 0.5px 5px #000a21 !important; }
+.size-lbl { font-weight: 500; }
+.amount .num { font-size: 48px; letter-spacing: -1.92px; }
+.amount .caret { background: #9db0ff !important; }
+.cash-line { font-weight: 500; }
+.presets button { font-weight: 700; }
+.presets button.on { background: var(--mint); color: #050b1f; }
+.trade.short .presets button.on { background: var(--coral); }
+.lev-head b { font-weight: 400; }
+.lev-head span { font-weight: 500; }
+.ruler-b { position: relative; margin-top: 21px; padding-top: 0; touch-action: none; cursor: ew-resize; flex-shrink: 0; }
+.ruler-b .track { position: relative; height: 42px; border-radius: 21px; border: 1px solid rgba(255,255,255,0.1); background: rgba(35,59,98,0.3); overflow: hidden; box-shadow: inset 0 8px 20px rgba(0,0,0,0.28); }
+.ruler-b .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 21px; transition: width .12s ease-out; }
+.ruler-b .t { position: absolute; top: 15px; width: 1px; height: 10px; border-radius: 1px; background: rgba(255,255,255,0.18); transition: background-color .15s; }
+.ruler-b .t.major { top: 11px; height: 18px; background: rgba(255,255,255,0.28); }
+.ruler-b .knob-b { position: absolute; top: 4px; width: 32px; height: 32px; margin-left: -16px; border-radius: 16px; background: #effff9; border: 1px solid rgba(255,255,255,0.75); display: grid; place-items: center; transition: left .12s ease-out; }
+.ruler-b .knob-b i { width: 8px; height: 8px; border-radius: 4px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.6); }
+.ruler-b .bubble { position: absolute; top: -37px; padding: 4px 10px; border-radius: 12px; font-weight: 500; font-size: 14px; color: #fff; transition: left .12s ease-out, transform .25s var(--spring); white-space: nowrap; }
+.ruler-b .lbls { position: relative; height: 23.5px; }
+.ruler-b .lbls span { position: absolute; top: 7px; transform: translateX(-50%); font-weight: 500; font-size: 11px; color: #5e6888; transition: color .2s; }
+.ruler-b .lbls span.on { color: #fff; }
+.summary { margin-top: 6px; }
+.summary .r b { font-weight: 700; }
+.slide { background: transparent; }
+.slide .knob { box-shadow: inset 0 2px 9.2px rgba(218,235,214,0.1); }
+.slide .label { font-weight: 400; font-size: 16px; padding-left: 113px; }
+.slide .trail { background: rgba(255,255,255,0.06); }
+
+/* ───────── Success ───────── */
+.success-b { background: var(--bg); }
+.seal-b { position: relative; margin: 138px auto 0; width: 174px; height: 178px; flex-shrink: 0; }
+/* Figma seal video node: x64 y99 266×256 on the 393×852 frame */
+.seal-vid { position: absolute; left: 64px; top: 99px; width: 266px; height: 256px; object-fit: cover; z-index: 1; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%); mask-image: radial-gradient(closest-side, #000 72%, transparent 100%); }
+.success-b h1 { margin-top: 84px; font-size: 32px; line-height: 1.2; font-weight: 400; letter-spacing: 0; }
+.success-b .sub { margin-top: 7px; font-weight: 500; }
+.success-b .details { margin-top: 40px; }
+.success-b .details .r b { font-weight: 700; }
+.success-b .actions { margin-bottom: 44px; gap: 16px; }
+
+/* sheets */
+.sheet { background: #071a2e; border-color: rgba(123,149,255,0.25); }
+.sheet h3 { font-family: var(--serif); font-style: italic; font-size: 28px; }
+.sheet .btn-white { background: var(--klein-b); color: #fff; border-radius: 100px; font-weight: 400; box-shadow: inset 0 6.5px 4px rgba(128,94,240,0.25), inset 0 -4px 4px rgba(93,123,243,0.25); }
+.sheet .btn-glass { border-radius: 100px; font-weight: 400; }
+
+/* ───────────── Figma "Glass" effect (liquid glass) ─────────────
+   Figma params per node: frost radius, refraction, depth, light angle/intensity, dispersion.
+   CSS has no refraction, so the material is rebuilt from layers that read the same:
+   • frost      → backdrop-filter blur(radius) on the element
+   • depth/refr → bright inner edge band (bent light at the bevel), width ∝ depth
+   • light      → specular rim: gradient border at the light angle (−45° = top-left key, bottom-right kick)
+   • dispersion → thin cyan / magenta fringes on opposite edges
+   Two pseudo layers sit on top of the content (pointer-events: none), so any element can wear it. */
+:root { --lg-ang: 135deg; }
+:where(.glass, .seg, .ls-toggle, .tabbar, .asset-ring, .asset-coin, .avatar-b, .avatar-b span, .pill-up, .trange .pill, .seg .pill, .ls-toggle .pill,
+  .news-b, .featured-b, .card-b, .btn-b, .btip, .chip.on, .ruler-b .track, .slide, .ratio .bars i, .pos-card, .pf-card-b) { position: relative; }
+
+/* control glass — Search, icon buttons, time range, segmented, toggle, presets, bubble (r6 · refr .7 · depth 12 · light .6 · disp .2) */
+.glass, .seg, .ls-toggle { --lg-i: .6; --lg-d: 12px; --lg-x: .2; --lg-blur: 6px; }
+/* tab bar (r6 · depth 14 · light .7 · disp .25) */
+.tabbar { --lg-i: .7; --lg-d: 14px; --lg-x: .25; --lg-blur: 6px; }
+/* chip / card glass (r4 · refr .8 · depth 20 · light .8 · disp .5) */
+.asset-ring, .asset-coin, .avatar-b, .avatar-b span, .pill-up, .trange .pill, .seg .pill, .ls-toggle .pill, .news-b, .featured-b, .card-b,
+.btn-b, .btip, .chip.on, .ruler-b .track, .slide, .ratio .bars i, .pos-card { --lg-i: .8; --lg-d: 20px; --lg-x: .5; --lg-blur: 4px; }
+/* portfolio card (r79 · refr .64 · depth 72 · light .8 @ 328° · disp .54) */
+.pf-card-b { --lg-i: .8; --lg-d: 72px; --lg-x: .54; --lg-blur: 79px; --lg-ang: 122deg; }
+
+.glass, .seg, .ls-toggle, .tabbar, .news-b, .featured-b, .card-b, .pos-card, .pf-card-b, .ruler-b .track, .slide {
+  -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(150%);
+  backdrop-filter: blur(var(--lg-blur)) saturate(150%);
+}
+
+:is(.glass, .seg, .ls-toggle, .tabbar, .asset-ring, .avatar-b, .pill-up, .trange .pill, .seg .pill, .ls-toggle .pill, .news-b, .featured-b, .card-b,
+  .btn-b, .btip, .chip.on, .ruler-b .track, .slide, .ratio .bars i, .pos-card, .pf-card-b)::before,
+:is(.glass, .seg, .ls-toggle, .tabbar, .asset-ring, .asset-coin, .avatar-b span, .pill-up, .trange .pill, .seg .pill, .ls-toggle .pill, .news-b, .featured-b, .card-b,
+  .btn-b, .btip, .chip.on, .ruler-b .track, .slide, .ratio .bars i, .pos-card, .pf-card-b)::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 5;
+}
+/* bevel + refraction band + dispersion fringes */
+:is(.glass, .seg, .ls-toggle, .tabbar, .asset-ring, .avatar-b, .pill-up, .trange .pill, .seg .pill, .ls-toggle .pill, .news-b, .featured-b, .card-b,
+  .btn-b, .btip, .chip.on, .ruler-b .track, .slide, .ratio .bars i, .pos-card, .pf-card-b)::before {
+  box-shadow:
+    inset 0 0 calc(var(--lg-d) * .55) calc(var(--lg-d) * -.08) rgb(200 215 255 / calc(.16 * var(--lg-i))),
+    inset 1px 1px .5px rgb(255 255 255 / calc(.26 * var(--lg-i))),
+    inset -1px -1px .5px rgb(255 255 255 / calc(.16 * var(--lg-i))),
+    inset 2.5px 1.5px 2px -1px rgb(90 220 255 / calc(.55 * var(--lg-x))),
+    inset -2.5px -1.5px 2px -1px rgb(255 110 220 / calc(.45 * var(--lg-x)));
+  background: radial-gradient(120% 70% at 18% 0%, rgb(255 255 255 / calc(.07 * var(--lg-i))), transparent 60%);
+}
+/* specular rim at the light angle */
+:is(.glass, .seg, .ls-toggle, .tabbar, .asset-ring, .asset-coin, .avatar-b span, .pill-up, .trange .pill, .seg .pill, .ls-toggle .pill, .news-b, .featured-b, .card-b,
+  .btn-b, .btip, .chip.on, .ruler-b .track, .slide, .ratio .bars i, .pos-card, .pf-card-b)::after {
+  padding: 1px;
+  background: linear-gradient(var(--lg-ang),
+    rgb(255 255 255 / calc(.55 * var(--lg-i))) 0%, rgb(255 255 255 / .05) 30%,
+    rgb(255 255 255 / .02) 60%, rgb(255 255 255 / calc(.32 * var(--lg-i))) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+.pf-card-b::before { background: radial-gradient(90% 45% at 15% 0%, rgb(255 255 255 / .06), transparent 70%), radial-gradient(70% 40% at 100% 100%, rgb(123 149 255 / .08), transparent 70%); }
+/* the tab bar's active pill lives at z -1; keep the material above it */
+.tabbar { isolation: isolate; }
+/* Figma inner glow on the slide-to-confirm glass */
+.trade .slide { box-shadow: inset 0 2px 9.2px 6.5px rgb(218 235 214 / .1); }
+.trade.short .slide { box-shadow: inset 0 4px 9.2px 6.5px rgb(237 156 156 / .1); }
